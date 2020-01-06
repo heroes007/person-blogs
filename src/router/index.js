@@ -16,7 +16,7 @@ const routes = [
                 component: () => import('../views/About.vue')
             },
             {
-                path: '/technology',
+                path: 'technology',
                 name: 'technology',
                 component: () => import('../views/technology/index.vue'),
                 children: [
@@ -57,7 +57,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     routes
 })
 

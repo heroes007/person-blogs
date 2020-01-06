@@ -4,10 +4,12 @@
         <div class="header">
             <Dropdown v-for="(item, index) in navigatationList" :key="index" placement="bottom">
                 <Icon :type="item.icon || 'ios-home'" color="#fff" size="18" style="margin-right: 4px;"/>
-                <a :href="item.url">{{item.father}}</a>
+<!--                <a :href="item.url">{{item.father}}</a>-->
+                <span @click="handleRouter(item)">{{item.father}}</span>
                 <DropdownMenu slot="list" v-for="(item1, index1) in item.son" :key="index1">
                     <DropdownItem>
-                        <a :href="item1.url">{{item1.name}}</a>
+                        <span @click="handleRouter(item1)">{{item1.name}}</span>
+<!--                        <a :href="item1.url">{{item1.name}}</a>-->
                     </DropdownItem>
                 </DropdownMenu>
             </Dropdown>
@@ -26,6 +28,11 @@
             return {
                 navigatationList,
                 list:[1,2,3]
+            }
+        },
+        methods: {
+            handleRouter(item) {
+                this.$router.push(item.url)
             }
         }
     }
@@ -79,7 +86,7 @@
                 background-color: #999;
             }
         }
-        a{
+        span{
             color: #fff;
             font-size: 16px;
             padding: 7px 0px;

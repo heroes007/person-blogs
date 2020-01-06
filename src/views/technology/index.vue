@@ -1,6 +1,6 @@
 <template>
     <div>
-        <module />
+        <module :key="item"/>
     </div>
 </template>
 
@@ -9,7 +9,12 @@
 
     export default {
         name: "index",
-        components: {module}
+        components: {module},
+        data() {
+            return {
+
+            }
+        }
     }
 </script>
 
